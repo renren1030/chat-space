@@ -1,0 +1,25 @@
+$side-character: #FFFFFF;
+$side-top-back: #253141;
+$side-top-bottom: #2f3e51;
+
+$main-header: #38AEF0;
+$main-border: #eeeeee;
+$main-back: #fafafa;
+$main-footer: #ddd;
+$main-character-l: #333333;
+$main-character-m: #434A54;
+$main-character-s: #999999;
+
+@mixin side-p {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+@mixin side-w {
+  width: 300px;
+}
+
+@mixin main-p {
+  padding-right: 40px;
+  padding-left: 40px;
+}
