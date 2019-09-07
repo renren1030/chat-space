@@ -1,0 +1,8 @@
+.chat__side--top
+  .chat__side--top--username
+    Ren
+  .chat__side--top--icon
+    =link_to  do
+      = fa_icon 'pencil-square-o' ,class: 'icon1';
+    = link_to edit_user_path(current_user) do
+      = fa_icon 'cog',class:'icon2';
