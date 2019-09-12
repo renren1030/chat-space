@@ -1,5 +1,7 @@
 .chat__side--group
-  .chat__side--group--name
-    test-group
-  .chat__side--group--messages
-    まだメッセージはありません
+  - current_user.groups.each do |group|
+    = link_to group_messages_path(group) do
+      .chat__side--group--name
+        = group.name
+      .chat__side--group--messages
+        メッセージはまだありません。
