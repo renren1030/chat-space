@@ -1,6 +1,9 @@
 .chat__main--messages--name
-  = current_user.name
+  = message.user.name
 .chat__main--messages--time
-  1999/10/30 17:30:00
+  = message.created_at.strftime("%Y/%m/%d %H:%M")
 .chat__main--messages--text
-  goodmorning
+  - if message.content.present?
+    %p.lower-messages__content
+      = message.content
+  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?

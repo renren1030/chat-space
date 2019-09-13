@@ -107,7 +107,7 @@
   &--messages{
     height: 100px;
     width: 100%;
-    display: flex;
+    
     
     
     &--name{
@@ -147,15 +147,11 @@
       width: calc(100vw - 500px);
       margin-top: 20px;
       margin-left: 40px;
-      position: fixed;
+      font-size: 16px;
+      color:  $main-character-s;
+      
       
       &--message{
-        font-size: 16px;
-        color:  $main-character-s;
-        padding-top: 13px;
-        padding-left: 10px;
-      }
-      &--picture{
         .icon3{
           color:#434a54;
           float: right;
@@ -163,7 +159,7 @@
           margin-right:10px;
           }
         }
-      }
+    }
     
     &--send{
         background-color: $main-header;
@@ -178,10 +174,12 @@
         cursor: pointer;
         }
    
-      
-  }
+      }
+  
   } 
 }
-#filesend{
+.filesend{
   display: none;
 }
+
+

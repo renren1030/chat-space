@@ -1,9 +1,8 @@
-.chat__main--footer--form
-  .chat__main--footer--form--picture
-    %label
-      %i.fa.fa-picture-o{class:"icon3"}
-      %input{type: "file",id:"filesend"}
-  .chat__main--footer--form--message
-    type a message
-.chat__main--footer--send
-  Send
+.chat__main--form
+  = form_for [@group, @message] do |f|
+    = f.text_field :content, class: 'chat__main--form', placeholder: 'type a message'
+    .chat__main--form--message
+      = f.label :image, class: 'chat__main--form--message--picture' do
+        = fa_icon 'picture-o', class: 'icon3'
+        = f.file_field :image, class: 'filesend'
+    = f.submit 'Send', class: 'chat__main--form--message--send'

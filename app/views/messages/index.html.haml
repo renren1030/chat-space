@@ -6,6 +6,8 @@
     .chat__main--header
       =render partial:"chat-main-header"
     .chat__main--messages
-      =render partial:"chat-main-messages"
+      =render partial:"chat-main-messages" ,collection: @messages, as:"message"
     .chat__main--footer
       =render partial:"chat-main-footer"
+
+  
