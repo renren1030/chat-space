@@ -158,7 +158,8 @@
       margin-left: 40px;
       font-size: 16px;
       color:  $main-character-s;
-      
+    }
+
     &--form{
       
       &--send{
@@ -170,13 +171,12 @@
         line-height: 50px;
         text-align: center;
         cursor: pointer;
+        margin-top: 20px;
+        margin-left: 15px;
+          }
+        }
       
-      }
-  
-   
     }
-      }
-      }
   
   } 
 }

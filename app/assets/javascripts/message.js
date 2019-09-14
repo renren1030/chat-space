@@ -1,29 +1,27 @@
-$(document).on('turbolinks:load', function(){
-  function buildHTML(message) {
+$(function(){
+  function buildMessage(message) {
     var content = message.content ? `${ message.content }` : "";
     var img = message.image ? `<img src= ${ message.image }>` : "";
-    var html = `<div class="chat-main-messages" data-id="${message.id}">
-                  <div class="chat-main-messages-box">
-                    <p class="chat__main--messages--box--name">
-                      ${message.user_name}
-                    </p>
-                    <p class="chat__main--messages--box--time">
-                      ${message.date}
-                    </p>
-                  </div>
-                  <p class="chat__main--messages--box--text">
-                    <div>
-                    ${content}
+    var html = `<div class="chat__main--messages--box" data-id="${message.id}">
+                  <div class="chat__main--messages--box--name">
+                    ${message.user_name}
+                    <div class="chat__main--messages--box--time">
+                    ${message.date}
                     </div>
-                    ${img}
-                  </p>
+                  </div>
+                  <div class="chat__main--messages--box--text">
+                    <p class="lower-messages__content">
+                      ${content}
+                    </p>
+                      ${img}
+                  </div>
                 </div>`
   return html;
   }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var message = new FormData(this);
-    var url = (window.location.href);
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: 'POST',
@@ -33,17 +31,16 @@ $(document).on('turbolinks:load', function(){
       contentType: false
     })
     .done(function(message){
-      var html = buildHTML(message);
-      $('.chat').append(html)
-      $('#newmessage')[0].reset();
+      var html = buildMessage(message);
+      $('.chat__main--messages').append(html)
+      $("#new_message")[0].reset();
       $('.chat__main--footer--form--send').prop('disabled',false);
-      $('.chat').animate({scollTop: $('.chat')[0].scrollHeight},'fasts')
+      $('.chat__main--messages').animate({scrollTop: $('.chat__main--messages')[0].scrollHeight},'fasts')
+    }
+    )
+    .fail(function(){
+      alert('エラー');
     })
-    .fail(function(data){
-      alert('エラーが発生したためメッセージは送信できませんでした。');
-    })
-    .always(function(data){
-      $('.submit-btn').prop('disabled', false);　//ここで解除している
-    })
+    
   })
 });
