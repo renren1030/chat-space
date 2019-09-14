@@ -2,7 +2,7 @@
   = form_for [@group, @message] do |f|
     = f.text_field :content, class: 'chat__main--footer--text', placeholder: 'type a message'
     .chat__main--footer--form
-      = f.label :image, class: 'footer--form--picture' do
+      = f.label :image, class: 'footer--form' do
         = fa_icon 'picture-o', class: 'icon3'
         = f.file_field :image, class: 'filesend'
-    = f.submit 'Send', class: 'chat__main--footer--send'
+    = f.submit 'Send', class: 'chat__main--footer--form--send'
