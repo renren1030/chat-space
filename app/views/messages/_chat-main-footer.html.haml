@@ -1,8 +1,8 @@
-.chat__main--form
+.chat__main--footer
   = form_for [@group, @message] do |f|
-    = f.text_field :content, class: 'chat__main--form', placeholder: 'type a message'
-    .chat__main--form--message
-      = f.label :image, class: 'chat__main--form--message--picture' do
+    = f.text_field :content, class: 'chat__main--footer--text', placeholder: 'type a message'
+    .chat__main--footer--form
+      = f.label :image, class: 'footer--form--picture' do
         = fa_icon 'picture-o', class: 'icon3'
         = f.file_field :image, class: 'filesend'
-    = f.submit 'Send', class: 'chat__main--form--message--send'
+    = f.submit 'Send', class: 'chat__main--footer--send'

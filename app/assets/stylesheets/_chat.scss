@@ -141,7 +141,7 @@
     bottom: 0;
     
   
-    &--form{
+    &--text{
       background-color:$side-character;
       height: 50px;
       width: calc(100vw - 500px);
@@ -150,15 +150,16 @@
       font-size: 16px;
       color:  $main-character-s;
       
-      
-      &--message{
+    &--form{}
+      &--picture{
         .icon3{
           color:#434a54;
-          float: right;
+          
           margin-top: 20px;
           margin-right:10px;
           }
         }
+      
     }
     
     &--send{
