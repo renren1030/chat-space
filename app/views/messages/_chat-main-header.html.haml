@@ -1,7 +1,8 @@
 .chat__main--header--gname
-  sample-group
+  = @group.name
 .chat__main--header--edit
-  Edit
+  = link_to "Edit" , edit_group_path(params[:group_id])
 .chat__main--header--members
-  Member : Ren
+  - @members.each do |member|
+    = member.name
 
