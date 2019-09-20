@@ -57,8 +57,7 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 gem "devise"
 gem 'carrierwave'
-gem 'mini_magick'
- gem 'therubyracer' 
+gem 'mini_magick' 
 
 group :production do
   gem 'unicorn', '5.4.1'
