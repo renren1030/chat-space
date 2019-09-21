@@ -1,5 +1,16 @@
 $(function() {
 
+    $(document).on('click', '.user-search-add', function() {
+      var name = $(this).data("user-name");
+      var user_id = $(this).data("user-id");
+      $(this).parent().remove();
+      appendMembers(name, user_id);
+    });
+
+　    $(document).on("click", '.user-search-remove', function() {
+        $(this).parent().remove();
+    });
+
   var search_list = $("#user-search-result");
   var member_list = $("#member_search_result");
 
@@ -21,6 +32,7 @@ $(function() {
               </div>`
 
 　　 member_list.append(html);
+    return html
   }
 
   function appendNoUsers(info) {
@@ -31,7 +43,7 @@ $(function() {
     search_list.append(html);
   }
 
-  $(function(){
+  // $(function(){
     $("#user-search-field").on("keyup", function() {
       var input = $("#user-search-field").val();
 
@@ -39,14 +51,14 @@ $(function() {
         type: 'GET',
         url: '/users',
         data: { keyword: input },
-        dataType: 'json'
+        dataType: 'json',
       })
 
       .done(function(users) {
         $("#user-search-result").empty();
           if (users.length !== 0) {
             users.forEach(function(user){
-            appendUsers(user);
+              appendUsers(user);
             });
           }
           else {
@@ -57,18 +69,4 @@ $(function() {
         alert('ユーザー検索に失敗しました');
       })
     });
-
-    $(function(){
-      $(document).on('click', '.user-search-add', function() {
-        var name = $(this).data("user-name");
-        var user_id = $(this).data("user-id");
-        $(this).parent().remove();
-        appendMembers(name, user_id);
-      });
-
-　    $(document).on("click", '.user-search-remove', function() {
-        $(this).parent().remove();
-      });
-    });
   });
-});

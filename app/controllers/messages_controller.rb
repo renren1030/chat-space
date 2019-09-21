@@ -2,21 +2,21 @@ class MessagesController < ApplicationController
   before_action :set_group
 
   def index
-    @group = Group.find(params[:group_id])
+    # @group = Group.find(params[:group_id])
     @message = Message.new
-    @messages = @group.messages.includes(:user).where('id > ?', params[:last_id])
+    @messages = @group.messages.includes(:user)
     @members = @group.users
-    respond_to do |format|
-      format.html
-      format.json { @messages = @messages.where("id > ?",params[:last_id])}
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json { @messages = @messages.where("id > ?",params[:last_id])}
+    # end
   end
 
   def create
     @message = @group.messages.new(message_params)
     if @message.save
       respond_to do |format|
-        format.html { redirect_to "group_messages_path(params[:group_id])" }
+        format.html { redirect_to group_messages_path(params[:group_id]) }
         format.json
       end
     else
